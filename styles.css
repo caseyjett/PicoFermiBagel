@@ -1,0 +1,10 @@
+li {
+    list-style-type: none;
+}
+
+input[type='text'] {
+    width: 20%; 
+    padding: 2rem 0;
+    font-size: 1rem; 
+    text-align: center; 
+}
