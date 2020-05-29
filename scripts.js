@@ -33,19 +33,15 @@ function totalFermi(a, b) {
     return true;
 }
 
+//If length is changeable then these numbers will need to reflect that somehow.
 function pico(a, b) {
     let pico = []; 
     for (let i = 0; i < a.length; i++) {
-        if (a[i] === b[i -1] || a[i] === b[i - 2] || a[i] === b[i+1] || a[i] === b[i + 2]) {
+        if (a[i] === b[i - 1] || a[i] === b[i - 2] || a[i] === b[i+1] || a[i] === b[i + 2]) {
             pico.push([i]);
         }
     } return pico.length
 }
-
-let cat = [2, 4, 7]; 
-let dog = [4, 7, 2]; 
-
-console.log(pico(cat, dog))
 
 function fermi(a, b) {
       let fermi = []; 
@@ -81,20 +77,27 @@ guess.addEventListener('click', () => {
         ul.appendChild(li);  
     } 
 
-    if (fermi(arr, randomArr) > 0) {
+    if (fermi(arr, randomArr) > 0 && pico(arr, randomArr) === 0) {
         let numOfFermi = fermi(arr, randomArr);
         li.textContent = newNum + ` -  ${numOfFermi} Fermi`; 
         ul.appendChild(li);
     } 
 
-    if (pico(arr, randomArr) > 0) {
+    if (pico(arr, randomArr) > 0 && fermi(arr, randomArr) === 0) {
         let numOfPico = pico(arr, randomArr); 
         li.textContent = newNum + ` -  ${numOfPico} Pico`; 
         ul.appendChild(li);
     }
 
+    if (pico(arr, randomArr) > 0 && fermi(arr, randomArr) > 0) {
+        let numOfPico = pico(arr, randomArr); 
+        let numOfFermi = fermi(arr, randomArr);
+        li.textContent = newNum + ` -  ${numOfPico} Pico ${numOfFermi} Fermi`; 
+        ul.appendChild(li);
+    }
+
     if (totalFermi(arr, randomArr)) {
-        li.textContent = `Total Fermi - YOU WIN!`; 
+        li.textContent = `YOU WIN!`; 
         ul.appendChild(li);  
     } 
     
