@@ -11,42 +11,79 @@ const randomNum1 = getRandom(1, 1).toString(); //Min should always be 1 for the 
 const randomNum2 = getRandom(0, 1).toString();
 const randomNum3 = getRandom(0, 1).toString();
 
-const num1 = document.getElementById('num1');
-const num2 = document.getElementById('num2');
-const num3 = document.getElementById('num3');
+let randomArr = [randomNum1, randomNum2, randomNum3]; 
+console.log(randomArr); 
+
+let num1 = document.getElementById('num1');
+let num2 = document.getElementById('num2');
+let num3 = document.getElementById('num3');
 
 const guess = document.getElementById('guess'); 
+const giveUp = document.getElementById('giveUp'); 
+
+function totalFermi(a, b) { 
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
+
+function fermi(a, b) {
+      let fermi = []; 
+      for (let i = 0; i < a.length; i++) {
+        if (a[i] === b[i]) {
+            fermi.push([i]); 
+        }
+    } return fermi.length; 
+}
+
+function bagel(a, b) {
+    for (let i = 0; i < a.length; i++) {
+        if (a[i] !== b[i]) return false;
+    }
+    return true;
+}
 
 guess.addEventListener('click', () => {
-    let pico = []; 
+    let num1r = num1.value;
+    let num2r = num2.value; 
+    let num3r = num3.value; 
+    let nums = num1r + num2r + num3r; 
+    
+    let newNum = num1r + num2r + num3r; 
+    let arr = newNum.split(""); 
+    console.log(arr); 
+
     let ul = document.getElementsByTagName('ul')[0];
     let li = document.createElement('li');
-    if (randomNum1 === num1.value && randomNum2 === num2.value 
-        && randomNum3 === num3.value) {
-            console.log('Fermi'); 
-            li.textContent = "Fermi"; 
-            ul.appendChild(li); 
-    } else {
-        li.textContent = num1.value + num2.value + num3.value; 
-            ul.appendChild(li); 
-            num1.value = ""; 
-            num2.value = ""; 
-            num3.value = ""; 
+ 
+    if (totalFermi(arr, randomArr)) {
+        li.textContent = `Total Fermi - YOU WIN!`; 
+        ul.appendChild(li);  
+    } 
 
-    }   
- }); 
+    if (!totalFermi(arr, randomArr)) {
+        li.textContent = nums + ` - BAGEL`; 
+        ul.appendChild(li);  
+    } 
 
-// This code adds the guessed number to the page. 
-// guess.addEventListener('click', () => {
-//     // need to add my if statements for each value 
-//     let ul = document.getElementsByTagName('ul')[0]; 
-//     let li = document.createElement('li'); 
-//     li.textContent = num1.value + num2.value + num3.value; 
-//     ul.appendChild(li); 
-//     num1.value = ""; 
-//     num2.value = ""; 
-//     num3.value = ""; 
-// }); 
+    if (fermi(arr, randomArr) > 0 && fermi(arr, randomArr) < 3) {
+        let numOfFermi = fermi(arr, randomArr);
+        li.textContent = nums + ` -  ${numOfFermi} Fermi`; 
+        ul.appendChild(li);
+    } 
+    
+    num1.value = ""; 
+    num2.value = ""; 
+    num3.value = ""; 
+}); 
+
+ giveUp.addEventListener('click', () => {
+    let ul = document.getElementsByTagName('ul')[0];
+    let li = document.createElement('li');
+    li.textContent = `${randomArr.join("")} - Never give up!`; //instead of console.logging this add it to the document
+    ul.appendChild(li); 
+})
 
 //Ideas for input: 
 //https://stackoverflow.com/questions/42067911/input-field-restrict-to-one-digit
