@@ -4,7 +4,7 @@ let num1 = document.getElementById('num1');
 let num2 = document.getElementById('num2');
 let num3 = document.getElementById('num3');
 
-// let numDigits = 6; //get from user input
+// let numDigits = 6; //get from user input and change slice
 let randomArr = shuffleArray(numbers).slice(0,3);
 
 const guess = document.getElementById('guess'); 
@@ -23,6 +23,8 @@ function shuffleArray(array) {
     } 
     return array;
 }
+
+console.log(randomArr); 
 
 function totalFermi(a, b) { 
     for (let i = 0; i < a.length; i++) {
@@ -58,8 +60,7 @@ function bagel(a, b) {
 }
 
 function checker(arr) {
-    let testForDupes = arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x)); 
-    return testForDupes ? true : false; 
+    return arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x)); 
 }
 
 // ---------- BEHAVIORS --------------------
@@ -126,10 +127,6 @@ guess.addEventListener('click', () => {
 
 
 //Ideas for input: 
-//https://stackoverflow.com/questions/42067911/input-field-restrict-to-one-digit
+
 //https://www.w3schools.com/js/js_validation.asp
 //.insertBefore to fix list order
-
-
-// let arr = [1, 4, 6, 7]; 
-// console.log(`I have ${arr.length} numbers. They are ${arr}`)

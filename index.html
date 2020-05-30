@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Pico Fermi Bagel</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <header>
@@ -13,17 +13,25 @@
     
     <!-- <p>History: https://en.wikipedia.org/wiki/Bulls_and_Cows or https://en.wikipedia.org/wiki/Mastermind_(board_game)</p> -->
     <!-- <p>Only functioning online example found thus far: https://communicrossings.com/html/js/pfb.htm#describe</p> -->
-    <input type="text" maxlength="1" id="num1">
-    <input type="text" maxlength="1" id="num2">
-    <input type="text" maxlength="1" id="num3">
-    <button id="guess">Guess!</button>
-    <button id="giveUp">Give up</button>
+    <div class="input">
+    <!-- I dont actually understand why the oninput works yet. See below -->
+        <input type="text" maxlength="1" id="num1" oninput="this.value=this.value.replace(/[^0-9]/g,'')"> 
+        <input type="text" maxlength="1" id="num2" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+        <input type="text" maxlength="1" id="num3" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+    </div>
+
+    <div class="btn">
+        <button id="guess">Guess!</button>
+        <button id="giveUp">Give up</button>
+    </div>
     <ul>
 
     </ul>
 </main>
 <body>
-    <script src="scripts.js"></script>
-    <!-- <script src="thoughts.js"></script> -->
+    <!-- <script src="scripts.js"></script> -->
+    <script src="thoughts.js"></script>
 </body>
 </html>
+
+<!-- See: for where I got oninput code: https://stackoverflow.com/questions/42067911/input-field-restrict-to-one-digit -->
