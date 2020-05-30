@@ -1,30 +1,28 @@
-//No duplicates as of now
-
-// // Note: typeof will reveal randomNum elements as strings and not numbers. 
-// //If for some reason as I work this code, I need the types in my array to be numbers, use following code
-// //let changeType = randomNum.map(Number); 
-// // console.log(typeof changeType[0]); 
-
-// //This will generate the random number for the game. 
-function getRandom(min, max) {
-    return Math.floor(Math.random() * ((max + 1) - min) + min); 
-
-}
-
-//(1, 999) -- when testing with 0/1s remove excess random numbers and use one string.  
-const randomNum1 = getRandom(1, 3).toString(); 
-const randomNum2 = getRandom(0, 3).toString();
-const randomNum3 = getRandom(0, 3).toString();
-
-let randomArr = [randomNum1, randomNum2, randomNum3]; //this will become randomNum.toString().split("")
-console.log(randomArr); 
+let numbers = ['0','1','2','3','4','5','6','7','8','9'];
 
 let num1 = document.getElementById('num1');
 let num2 = document.getElementById('num2');
 let num3 = document.getElementById('num3');
 
+// let numDigits = 6; //get from user input
+let randomArr = shuffleArray(numbers).slice(0,3);
+
 const guess = document.getElementById('guess'); 
 const giveUp = document.getElementById('giveUp'); 
+
+//------- FUNCTIONS -------------------------------------
+function shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+        var j = Math.floor(Math.random() * (i + 1));
+        var temp = array[i];
+        array[i] = array[j];
+        array[j] = temp;
+    }
+    if (array[0] === '0') {
+        array.shift(); 
+    } 
+    return array;
+}
 
 function totalFermi(a, b) { 
     for (let i = 0; i < a.length; i++) {
@@ -44,12 +42,12 @@ function pico(a, b) {
 }
 
 function fermi(a, b) {
-      let fermi = []; 
-      for (let i = 0; i < a.length; i++) {
-        if (a[i] === b[i]) {
-            fermi.push([i]); 
-        }
-    } return fermi.length; 
+    let fermi = []; 
+    for (let i = 0; i < a.length; i++) {
+      if (a[i] === b[i]) {
+          fermi.push([i]); 
+      }
+  } return fermi.length; 
 }
 
 function bagel(a, b) {
@@ -58,6 +56,13 @@ function bagel(a, b) {
     }
     return true;
 }
+
+function checker(arr) {
+    let testForDupes = arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x)); 
+    return testForDupes ? true : false; 
+}
+
+// ---------- BEHAVIORS --------------------
 
 guess.addEventListener('click', () => {
     let num1r = num1.value;
@@ -97,9 +102,14 @@ guess.addEventListener('click', () => {
     }
 
     if (totalFermi(arr, randomArr)) {
-        li.textContent = `YOU WIN!`; 
+        li.textContent = `${newNum} ${newNum} - YOU WIN! - ${newNum} ${newNum}`; ; 
         ul.appendChild(li);  
     } 
+
+    if (checker(arr)) {
+        li.textContent = `Hey now - no duplicates`; 
+        ul.appendChild(li); 
+    }
     
     num1.value = ""; 
     num2.value = ""; 
