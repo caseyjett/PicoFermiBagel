@@ -26,6 +26,14 @@ function shuffleArray(array) {
 
 console.log(randomArr); 
 
+function emptyArr(arr) {
+    return (arr.length < 3); 
+    }
+
+function noZero(arr) {
+    return (arr[0] === "0"); 
+}
+
 function totalFermi(a, b) { 
     for (let i = 0; i < a.length; i++) {
       if (a[i] !== b[i]) return false;
@@ -75,8 +83,6 @@ guess.addEventListener('click', () => {
 
     let ul = document.getElementsByTagName('ul')[0];
     let li = document.createElement('li');
- 
-
 
     if (!totalFermi(arr, randomArr)) {
         li.textContent = newNum + ` - BAGEL`; 
@@ -111,6 +117,18 @@ guess.addEventListener('click', () => {
         li.textContent = `Hey now - no duplicates`; 
         ul.appendChild(li); 
     }
+
+    if (emptyArr(arr)) {
+        li.textContent = "Oops - you forgot one or more digits"; 
+        ul.appendChild(li); 
+    } 
+
+    //If game play explands from 3 digits, need to change number below. 
+    if (noZero) {
+        li.textContent = `3 digit numbers don't begin with zero!`; 
+        ul.appendChild(li); 
+    } 
+    
     
     num1.value = ""; 
     num2.value = ""; 
