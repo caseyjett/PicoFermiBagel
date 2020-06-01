@@ -1,11 +1,46 @@
+main {
+    margin: 0 auto;  
+    /* background: grey;  */
+}
 li {
     list-style-type: none;
 }
 
 input[type='text'] {
-    width: 20%; 
     padding: 2rem 0;
     font-size: 1rem; 
-    text-align: center; 
-    margin: 10px;
+    text-align: center; /*Sets cursor in middle of box*/
+    margin-right: 2%;
+    width: 25%; 
+}
+
+button {
+    margin: 0 .5rem; 
+}
+
+.btn {
+    display: flex; 
+    justify-content: center; 
+    margin-top: 1rem;
+}
+
+.input {
+    display: flex; 
+    justify-content: center; 
+    
+}
+
+input:last-child {
+    margin-right: 0;  
+
+}
+
+@media (min-width: 768px) {
+    main {
+        width: 80%; 
+    }
+
+    input[type="text"] {
+        width: 20% 
+    }
 }

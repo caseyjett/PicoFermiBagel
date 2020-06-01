@@ -118,16 +118,18 @@ guess.addEventListener('click', () => {
         ul.appendChild(li); 
     }
 
+    //If game play explands from 3 digits, need to change number below. 
+    if (noZero(arr)) {
+        li.textContent = `3 digit numbers don't begin with zero!`; 
+        ul.appendChild(li); 
+    } 
+
     if (emptyArr(arr)) {
         li.textContent = "Oops - you forgot one or more digits"; 
         ul.appendChild(li); 
     } 
 
-    //If game play explands from 3 digits, need to change number below. 
-    if (noZero) {
-        li.textContent = `3 digit numbers don't begin with zero!`; 
-        ul.appendChild(li); 
-    } 
+
     
     
     num1.value = ""; 
