@@ -1,3 +1,8 @@
+body {
+   
+    color: #005051; 
+
+}
 main {
     margin: 0 auto;  
     /* background: grey;  */
@@ -18,6 +23,38 @@ button {
     margin: 0 .5rem; 
 }
 
+.intro {
+    text-align: center; 
+    font-size: 1.2rem; 
+    padding-top: 1rem; 
+    font-weight: 400; 
+}
+
+.hints {
+    /* display: flex;  */
+    padding-left: 0; 
+}
+
+.hintLi {
+    background-color: #dcc6e0;
+    padding: .5rem; 
+    margin: 1rem; 
+    border-radius: 5px; 
+    flex: 1 0; 
+    font-size: 1.2rem; 
+}
+
+.hintLi:nth-child(even) {
+   background-color: #fffacd; 
+}
+
+.hintSpan {
+    font-size: 1.8rem; 
+    font-weight: 800;
+    display: block; 
+    text-align: center; 
+}
+
 .btn {
     display: flex; 
     justify-content: center; 
@@ -28,6 +65,11 @@ button {
     display: flex; 
     justify-content: center; 
     
+}
+
+input:focus {
+    outline: 1px solid #dcc6e0; 
+    box-shadow: 0 0 10px #dcc6e0;
 }
 
 input:last-child {
@@ -42,5 +84,13 @@ input:last-child {
 
     input[type="text"] {
         width: 20% 
+    }
+
+    .hints {
+        display: flex; 
+    }
+
+    .hintLi {
+        padding: 2rem; 
     }
 }

@@ -7,10 +7,15 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <header>
-    <h1>Pico Fermi Bagel</h1>
+    <h1 class="intro">Pico Fermi Bagel is a number guessing game. To solve the puzzle, you guess digits and are given the following hints:</h1>
 </header>
 <main>
     
+    <ul class="hints">
+         <li class="hintLi"><span class="hintSpan">Fermi:</span> Correct number in the corect position.</li>
+         <li class="hintLi"><span class="hintSpan">Pico:</span> Correct number in the wrong position.</li>
+         <li class="hintLi"><span class="hintSpan">Bagel:</span> Nothing matches.</li>
+    </ul>
     <!-- <p>History: https://en.wikipedia.org/wiki/Bulls_and_Cows or https://en.wikipedia.org/wiki/Mastermind_(board_game)</p> -->
     <!-- <p>Only functioning online example found thus far: https://communicrossings.com/html/js/pfb.htm#describe</p> -->
     <div class="input">
@@ -24,13 +29,13 @@
         <button id="guess">Guess!</button>
         <button id="giveUp">Give up</button>
     </div>
-    <ul>
+    <ul class="guesses">
 
     </ul>
 </main>
 <body>
-    <!-- <script src="scripts.js"></script> -->
-    <script src="thoughts.js"></script>
+    <script src="scripts.js"></script>
+    <!-- <script src="thoughts.js"></script> -->
 </body>
 </html>
 

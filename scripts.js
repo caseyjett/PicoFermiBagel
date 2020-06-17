@@ -60,13 +60,6 @@ function fermi(a, b) {
   } return fermi.length; 
 }
 
-function bagel(a, b) {
-    for (let i = 0; i < a.length; i++) {
-        if (a[i] !== b[i]) return false;
-    }
-    return true;
-}
-
 function checker(arr) {
     return arr.some(x => arr.indexOf(x) !== arr.lastIndexOf(x)); 
 }
@@ -81,7 +74,7 @@ guess.addEventListener('click', () => {
     let arr = newNum.split(""); 
     console.log(arr); 
 
-    let ul = document.getElementsByTagName('ul')[0];
+    let ul = document.getElementsByClassName('guesses')[0];
     let li = document.createElement('li');
 
     if (!totalFermi(arr, randomArr)) {
