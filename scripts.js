@@ -43,21 +43,21 @@ function totalFermi(a, b) {
 
 //If length is changeable then these numbers will need to reflect that somehow.
 function pico(a, b) {
-    let pico = []; 
+    let pico = 0; 
     for (let i = 0; i < a.length; i++) {
         if (a[i] === b[i - 1] || a[i] === b[i - 2] || a[i] === b[i+1] || a[i] === b[i + 2]) {
-            pico.push([i]);
+            pico++; 
         }
-    } return pico.length
+    } return pico; 
 }
 
 function fermi(a, b) {
-    let fermi = []; 
+    let fermi = 0; 
     for (let i = 0; i < a.length; i++) {
       if (a[i] === b[i]) {
-          fermi.push([i]); 
+          fermi++; 
       }
-  } return fermi.length; 
+  } return fermi; 
 }
 
 function checker(arr) {
