@@ -16,16 +16,14 @@
          <li class="hintLi"><span class="hintSpan">Pico:</span> Correct number in the wrong position.</li>
          <li class="hintLi"><span class="hintSpan">Bagel:</span> Nothing matches.</li>
     </ul>
-    <!-- <p>History: https://en.wikipedia.org/wiki/Bulls_and_Cows or https://en.wikipedia.org/wiki/Mastermind_(board_game)</p> -->
-    <!-- <p>Only functioning online example found thus far: https://communicrossings.com/html/js/pfb.htm#describe</p> -->
+
     <div class="input">
-    <!-- I dont actually understand why the oninput works yet. See below -->
         <input type="text" maxlength="1" id="num1" oninput="this.value=this.value.replace(/[^0-9]/g,'')"> 
         <input type="text" maxlength="1" id="num2" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         <input type="text" maxlength="1" id="num3" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
     </div>
 
-    <div class="btn">
+    <div class="buttons">
         <button id="guess">Guess!</button>
         <button id="giveUp">Give up</button>
     </div>
@@ -40,3 +38,5 @@
 </html>
 
 <!-- See: for where I got oninput code: https://stackoverflow.com/questions/42067911/input-field-restrict-to-one-digit -->
+<!-- <p>History: https://en.wikipedia.org/wiki/Bulls_and_Cows or https://en.wikipedia.org/wiki/Mastermind_(board_game)</p> -->
+<!-- <p>Only functioning online example found thus far: https://communicrossings.com/html/js/pfb.htm#describe</p> -->

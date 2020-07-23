@@ -131,7 +131,7 @@ guess.addEventListener('click', () => {
 }); 
 
  giveUp.addEventListener('click', () => {
-    let ul = document.getElementsByTagName('ul')[0];
+    let ul = document.getElementsByTagName('ul')[1];
     let li = document.createElement('li');
     li.textContent = `${randomArr.join("")} - Never give up!`; 
     ul.appendChild(li); 
