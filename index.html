@@ -7,30 +7,31 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body class="body">
-
+<!-- This is a stationary link to start a new game -->
     <a href="#" onclick="window.location.reload(); return false;" class="newGame">New Game</a>
-
+<!-- Short Explanation of Game -->
     <header>
         <h1 class="intro">Pico Fermi Bagel is a number guessing game. To solve the puzzle, you guess digits and are given the following hints:</h1>
     </header>
     <main>
-
+<!-- These are the hint boxes -->
         <ul class="hints">
             <li class="hintLi"><span class="hintSpan">Fermi:</span>Correct number in the correct position.</li>
             <li class="hintLi"><span class="hintSpan">Pico:</span>Correct number in the wrong position.</li>
             <li class="hintLi"><span class="hintSpan">Bagel:</span>Nothing matches.</li>
         </ul>
-
+<!-- This is where players enter their guesses -->
         <div class="input">
             <input type="text" maxlength="1" id="num1" oninput="this.value=this.value.replace(/[^0-9]/g,'')"> 
             <input type="text" maxlength="1" id="num2" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
             <input type="text" maxlength="1" id="num3" oninput="this.value=this.value.replace(/[^0-9]/g,'')">
         </div>
-
+<!-- Both Buttons -->
         <div class="buttons">
             <button id="guess">Guess!</button>
             <button id="giveUp">Give up</button>
         </div>
+<!-- This is where guesses & hints will be displayed through the JavaScript -->
         <ul class="guesses">
 
         </ul>
