@@ -1,12 +1,12 @@
 /* Base Styles  */
 body {
-   
+    margin: 0; 
+    padding: 0; 
     color: #005051; 
 
 }
 main {
     margin: 0 auto;  
-    /* background: grey;  */
 }
 
 li {
@@ -32,12 +32,27 @@ input:last-child {
 
 }
 
+canvas {
+    height: 100%; 
+    position: fixed; 
+    width: 100%; 
+}
+
 
 /* Class Styles */
+.newGame {
+    background-color: #efefef; 
+    padding: .4rem .6rem; 
+    text-decoration: none; 
+    display: block; 
+    color: #885192;
+    text-align: right; 
+    text-transform: uppercase; 
+}
+
 .intro {
     text-align: center; 
     font-size: 1.2rem; 
-    padding-top: 1rem; 
     font-weight: 400; 
 }
 
@@ -53,6 +68,7 @@ input:last-child {
     border-radius: 5px; 
     flex: 1 0; 
     font-size: 1.2rem; 
+    text-align: center; 
 }
 
 .hintLi:nth-child(even) {
@@ -69,13 +85,21 @@ input:last-child {
 .buttons {
     display: flex; 
     justify-content: center; 
-    margin-top: 1rem;
+    margin: 1rem 0 2rem 0;
 }
 
 .input {
     display: flex; 
     justify-content: center; 
     
+}
+
+.guesses li {
+    font-size: 1.2rem; 
+}
+
+#emphasizeItem {
+    font-size: 1.7rem; 
 }
 
 /* ID Styles */
@@ -92,13 +116,11 @@ input:last-child {
 }
 
 #guess:hover, 
-#giveUp:hover {
-    color: white; 
-    background-color: #005051;
-}
-
+#giveUp:hover,
 #guess:focus, 
 #giveUp:focus {
+    color: white; 
+    background-color: #005051;
     outline: none; 
 }
 
@@ -117,6 +139,6 @@ input:last-child {
     }
 
     .hintLi {
-        padding: 2rem; 
+        padding: 2rem 1rem; 
     }
 }
