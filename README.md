@@ -18,4 +18,4 @@ The optional features that I included to meet Code Louisville Front End Project 
 - Create and populate a JavaScript array, then retrieve and display one or more values from it
 - :nth child CSS  
 
-You shouldn't need to do anything special to run the game. Play on [Github Pages] (https://caseyjett.github.io/PicoFermiBagel/)
+You shouldn't need to do anything special to run the game. Play on [Github Pages](https://caseyjett.github.io/PicoFermiBagel/)
